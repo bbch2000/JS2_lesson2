@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoodBurger</title>
+</head>
+<body>
+   <form id='burger' action="#">
+        <p><input name="size" type="radio" value="big" checked> Большой</p>
+        <p><input name="size" type="radio" value="small"> Маленький</p>
+        <p><input class='check' type="checkbox" name="topping" value="cheese"> Сыр</p>
+        <p><input class='check' type="checkbox" name="topping" value="salad"> Салат</p>
+        <p><input class='check' type="checkbox" name="topping" value="beef" checked> Мясная котлета</p>
+        <p><input class='check' type="checkbox" name="topping" value="ketchup"> Кетчуп </p>
+        <p><input class='check' type="checkbox" name="topping" value="mayonese"> Майонез</p>
+        <button onclick="getOrder()">send</button>
+   </form>
+   
+    <script src="script.js"></script>
+</body>
+</html>
