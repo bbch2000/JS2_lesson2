@@ -8,15 +8,18 @@ class Hamburger {
                 this.stuffing = topping;
             }
 
-            getToppings(topping) { // Получить список добавок
-                
+            getToppings() { // Получить список добавок
+                let block = document.querySelector('.toppings');
+                let adds = this.stuffing.map(function(item) {
+                    return item.name;
+                });
+                block.insertAdjacentHTML('beforeend', `<p>You chose ${adds} toppings`);
             }
             getSize() { // Узнать размер гамбургера
-                
+                let block = document.querySelector('.size');
+                block.insertAdjacentHTML('beforeend', `<p>You chose ${this.size} size`);
             }
-            getStuffing() { // Узнать начинку гамбургера
-                
-            }
+
             calculatePrice() { // Узнать цену
                 let sum = 0;
                 if (this.size == 'big') {
@@ -28,20 +31,24 @@ class Hamburger {
                     sum = sum + item.price;
                 });
                 console.log(sum);
-
+                let block = document.querySelector('.price');
+                block.insertAdjacentHTML('beforeend', `<p>Your burger price is ${sum} $`);
             }
             calculateCalories() { // Узнать калорийность
+                let sum = 0;
+                
                 if (this.size == 'big') {
                     sum = sum + 40;
                 } else {
                     sum = sum + 20;
                 }
                 
-                let sum = 0;
+                
                 let a = this.stuffing.forEach(function(item) {
                     sum = sum + item.calories;
                 });
-                console.log(sum);
+                let block = document.querySelector('.calories');
+                block.insertAdjacentHTML('beforeend', `<p>Your burger calories is ${sum} ccal`);
             }
 };
 
@@ -77,6 +84,7 @@ function getOrder () {
     yourBurger.addToppings(all);
     yourBurger.calculatePrice();
     console.log(yourBurger);
-    yourBurger.calculateCalories()
-    
+    yourBurger.calculateCalories();
+    yourBurger.getToppings();
+    yourBurger.getSize();
 }
